@@ -7,6 +7,6 @@
 		<setting name="lazyLoadingEnabled" value="false" />
 	</settings>
 	<typeAliases>
-		
+		<typeAlias type="com.amar.util.BinaryTree" alias="binaryTree"/>
 	</typeAliases>
 </configuration>

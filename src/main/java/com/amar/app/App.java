@@ -6,6 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.amar.common.AppInterface;
 import com.amar.util.SpringBeanFactory;
 
+@SuppressWarnings( "unused" )
 public class App
 {
 
@@ -15,8 +16,8 @@ public class App
 	{
 		App app = new App();
 		app.loadXML();
-		AppInterface main = SpringBeanFactory.getBean( "" );
-		main.start();
+		//AppInterface main = SpringBeanFactory.getBean( "" );
+		//main.start();
 	}
 
 	public void loadXML()
