@@ -3,7 +3,6 @@ package com.amar.app;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.amar.common.AppInterface;
 import com.amar.util.SpringBeanFactory;
 
 @SuppressWarnings( "unused" )
