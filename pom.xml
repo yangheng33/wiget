@@ -159,6 +159,59 @@
 		<scope>test</scope>
 	</dependency>
 	
+	<!-- mina -->
+	<dependency> 
+         <groupId>org.apache.mina</groupId> 
+         <artifactId>mina-core</artifactId> 
+         <version>${mina.version}</version> 
+     </dependency> 
+     <dependency> 
+         <groupId>org.apache.mina</groupId> 
+         <artifactId>mina-integration-beans</artifactId> 
+         <version>${mina.version}</version> 
+         <exclusions> 
+             <exclusion> 
+                 <groupId>org.apache.mina</groupId> 
+                 <artifactId>mina-core</artifactId> 
+             </exclusion> 
+         </exclusions> 
+     </dependency> 
+     <dependency> 
+         <groupId>org.apache.mina</groupId> 
+         <artifactId>mina-integration-ognl</artifactId> 
+         <version>${mina.version}</version> 
+         <exclusions> 
+             <exclusion> 
+                 <groupId>org.apache.mina</groupId> 
+                 <artifactId>mina-core</artifactId> 
+             </exclusion> 
+             <exclusion> 
+                 <groupId>org.apache.mina</groupId> 
+                 <artifactId>mina-integration-beans</artifactId> 
+             </exclusion> 
+         </exclusions> 
+     </dependency> 
+     <dependency> 
+         <groupId>org.apache.mina</groupId> 
+         <artifactId>mina-integration-jmx</artifactId> 
+         <version>${mina.version}</version> 
+         <exclusions> 
+             <exclusion> 
+                 <groupId>org.apache.mina</groupId> 
+                 <artifactId>mina-core</artifactId> 
+             </exclusion> 
+             <exclusion> 
+                 <groupId>org.apache.mina</groupId> 
+                 <artifactId>mina-integration-beans</artifactId> 
+             </exclusion> 
+             <exclusion> 
+                 <groupId>org.apache.mina</groupId> 
+                 <artifactId>mina-integration-ognl</artifactId> 
+             </exclusion> 
+         </exclusions> 
+     </dependency> 
+	 <!-- mina -->
+	 
     <dependency>
       <groupId>org.jdesktop</groupId>
       <artifactId>swing-layout</artifactId>
@@ -170,15 +223,40 @@
       <version>1.0</version>
     </dependency>
   </dependencies>
+  
   <build>
     <plugins>
+    
       <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
-        </configuration>
-      </plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-compiler-plugin</artifactId>
+	<version>2.3.2</version>
+	<configuration>
+		<source>1.6</source>
+		<target>1.6</target>
+		<encoding>UTF-8</encoding>
+	</configuration>
+	</plugin>
+      <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-jar-plugin</artifactId>
+		<configuration>
+		<archive>
+		<manifest>
+			<addClasspath>true</addClasspath>
+			<classpathPrefix>lib/</classpathPrefix>
+			<mainClass>com.amar.wiget.mina.demo1.ClientDemo1</mainClass>   
+		</manifest>
+		</archive>
+		</configuration>
+	</plugin>
+	<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-dependency-plugin</artifactId>
+		<executions>
+		
+		</executions>
+	</plugin>
     </plugins>
   </build>
 </project>
