@@ -14,7 +14,7 @@
         </property>  
     </bean> 
    
-   <bean id="dataSource2" class="com.mchange.v2.c3p0.ComboPooledDataSource" >  
+   <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">  
         <property name="driverClass"><value>${mysql.driverClass}</value></property>  
         <property name="jdbcUrl"><value>${mysql.url}</value></property>  
         <property name="user"><value>${mysql.username}</value></property>  
@@ -24,7 +24,7 @@
         <property name="maxPoolSize"><value>${jdbc.maxPoolSize}</value></property>  
     </bean> 
     
-    <bean id="dataSource" lazy-init="true" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close" >  
+    <bean id="dataSource2" lazy-init="true" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close" >  
 		<property name="driverClass" value="${oracle.driverClass}" />
 		<property name="jdbcUrl" value="${oracle.url}" />
 		<property name="user" value="${oracle.username}" />  
