@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+    
+    <!-- 在非 web / ejb 容器中使用 pool 时，要手动 stop，spring 不会为你执行 destroy-method 的方法 
+    <bean id="jmsFactory" class="org.apache.activemq.pool.PooledConnectionFactory" destroy-method="stop">  
+        <property name="connectionFactory">  
+            <bean class="org.apache.activemq.ActiveMQConnectionFactory">  
+                <property name="brokerURL" value="tcp://localhost:61616" />  
+            </bean>  
+        </property>  
+    </bean>  
+	 --> 
+	 
+	 <!-- 非jndi方式 -->
+	  <!--
+    <bean id="jmsFactory" class="org.apache.activemq.ActiveMQConnectionFactory">  
+        <property name="brokerURL" value="tcp://localhost:61616" />  
+    </bean>  
+    
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">  
+        <property name="connectionFactory" ref="jmsFactory" />  
+        <property name="defaultDestination" ref="topicDestination" />  
+        <property name="messageConverter">  
+            <bean class="org.springframework.jms.support.converter.SimpleMessageConverter" />  
+        </property>  
+    </bean>
+  
+  	<bean id="topicDestination" class="org.apache.activemq.command.ActiveMQTopic">  
+  		<constructor-arg index="0" value="my-topic" />
+  	</bean>
+  
+    <bean id="queueDestination" class="org.apache.activemq.command.ActiveMQQueue">  
+        <constructor-arg index="0" value="my-queue" />  
+    </bean> 
+ -->
+	<!-- 非jndi方式结束 -->
+	<!-- jndi 方式 Connection factory -->
+<!--
+	
+	<bean id="jmsConnectionFactory" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jms/flex/TopicConnectionFactory"></property>
+	</bean>
+	
+	<bean id="jmsTopic" class="org.springframework.jndi.JndiObjectFactoryBean"
+		lazy-init="true">
+		<property name="jndiName" value="java:comp/env/jms/messageTopic"></property>
+	</bean>
+	
+	<bean id="jmsTemplateFlex" class="org.springframework.jms.core.JmsTemplate"
+		lazy-init="true">
+		<property name="connectionFactory" ref="jmsConnectionFactory"></property>
+		<property name="defaultDestination" ref="jmsTopic"></property>
+	</bean>
+	
+	<bean id="jmsReceiver" class="com.amar.app.jms.MessageTopicReceiver"></bean>
+	
+	<bean id="listenerContainer"
+		class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="jmsConnectionFactory"></property>
+		<property name="destination" ref="jmsTopic"></property>
+		<property name="messageListener" ref="jmsReceiver"></property>
+		<property name="autoStartup" value="true" />
+	</bean> 
+     -->
+</beans>
