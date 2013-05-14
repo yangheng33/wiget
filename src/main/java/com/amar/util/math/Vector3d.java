@@ -1,7 +1,5 @@
 package com.amar.util.math;
 
-import java.text.DecimalFormat;
-
 /**
  * 3d向量计算，调用取模、点乘等函数，返回的是新创建的对象，原值保持不变
  */
