@@ -34,5 +34,16 @@
 		<property name="maxPoolSize" value="${jdbc.maxPoolSize}" />  
 	</bean>
 	
-    
+    <bean id="projectInfo" class="com.amar.constant.ProjectInfo">
+     		<property name="datadir"><value>${file.data.dir}</value></property>
+     		<property name="PROJECTNAME"><value>${projectname}</value></property>
+     		<property name="JMS_IP"><value>${jms_ip}</value></property>
+     		<property name="JMS_PORT"><value>${jms_port}</value></property>
+     		<property name="IP"><value>${ip}</value></property>
+     		<property name="PORT"><value>${port}</value></property>
+     		<property name="smtp"><value>${smtp}</value></property>
+     		<property name="pop3"><value>${pop3}</value></property>
+     		<property name="managerMail"><value>${managerMail}</value></property>
+     		<property name="managerMailPw"><value>${managerMailPw}</value></property>
+     </bean>
 </beans>

@@ -35,7 +35,7 @@ public class App implements BundleActivator
 		App app = new App();
 		app.loadXML();
 
-		doTest( bundleContext );
+		//doTest( bundleContext );
 	}
 
 	public void stop( BundleContext bundleContext ) throws Exception

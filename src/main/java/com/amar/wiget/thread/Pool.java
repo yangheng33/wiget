@@ -19,7 +19,7 @@ public class Pool implements Runnable
 		BlockingQueue<Runnable> threadQueue = new LinkedBlockingQueue<Runnable>();
 		ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor( 5 , 10 , 20 , TimeUnit.SECONDS , threadQueue );
 
-		for( int i = 0 ; i < 20 ; i ++ )
+		for( int i = 0 ; i < 2000 ; i ++ )
 		{
 			threadPoolExecutor.execute(  new Pool(i+"")  );
 		}
@@ -31,7 +31,7 @@ public class Pool implements Runnable
 		try
 		{
 			System.out.println( "now===>" + name );
-			Thread.sleep( 5000 );
+			Thread.sleep( 10000 );
 		}
 		catch ( InterruptedException e )
 		{

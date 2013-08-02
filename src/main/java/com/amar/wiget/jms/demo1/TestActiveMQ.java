@@ -29,9 +29,7 @@ public class TestActiveMQ
 	
 	public static void main( String [] args ) throws JMSException , InterruptedException
 	{
-		new TestActiveMQ().queue();
-		FailoverTransport s;
-		DiscoveryTransport ss;
+		new TestActiveMQ().topic();
 	}
 
 	public void queue() throws JMSException , InterruptedException
@@ -70,13 +68,13 @@ public class TestActiveMQ
 	 */
 	public void topic() throws JMSException , InterruptedException
 	{
-		ConnectionFactory connectionFactory = new ActiveMQConnectionFactory( url );
+		ConnectionFactory connectionFactory = new ActiveMQConnectionFactory( url2);
 		Connection connection = connectionFactory.createConnection();
 		connection.start();
 
 		Session session = connection.createSession( true , Session.AUTO_ACKNOWLEDGE );
 
-		Topic topic = session.createTopic( "jmsTopicTest" );
+		Topic topic = session.createTopic( "alarmTopic" );
 
 		MessageProducer producer = session.createProducer( topic );
 

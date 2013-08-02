@@ -11,8 +11,9 @@ public class DirSize
 	public static void main( String [] args ) throws IOException
 	{
 		DirSize dirSize = new DirSize();
-
-		dirSize.countDirSize( "D:/Program Files/apache-activemq-5.5.1" , "C:/Users/Administrator/Desktop/1.txt" );
+		
+		//dirSize.countDirSize( "D:\\data\\c\\activemq-cpp-library-3.7.0" , "C:/Users/Administrator/Desktop/qqq.txt" );
+		dirSize.countDirSize( "D:\\data\\c\\activemq-cpp-library-3.7.0", "C:/Users/Administrator/Desktop/after2.txt");
 	}
 
 	public void countDirSize( String dirPath , String logFilePath ) throws IOException
