@@ -3,8 +3,8 @@
 #################
 
 *.pydevproject
-.metadata
-.mymetadata
+#.metadata
+#.mymetadata
 bin/
 tmp/
 src/main/webapp/WEB-INF/classes/
@@ -12,14 +12,14 @@ src/main/webapp/WEB-INF/classes/
 *.bak
 *.swp
 *~.nib
-local.properties
+#local.properties
 .settings/
 .loadpath
 #*.class
 *.war
 target/
-.classpath
-.project
+#.classpath
+#.project
 
 
 # External tool builders
